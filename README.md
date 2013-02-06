@@ -48,3 +48,33 @@ override def toVarName(name: String): String = {
 }
 ```
 
+PRO-TIP
+-------
+
+Hate typing your `apiKey` and `apiAccessCode` over and over?  Edit your [api listings](https://github.com/reverb/swagger-flurry-sandbox/tree/master/src/main/webapp/flurry) and set the `defaultValue` for each field:
+
+```json
+
+            {
+              "name": "apiAccessCode",
+              "description": "API Access Code",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string",
+              "defaultValue": "YOUR_API_ACCESS_CODE"
+            },
+            {
+              "name": "apiKey",
+              "description": "API Key",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string",
+              "defaultValue": "YOUR_API_KEY"
+            },
+```
+
+Just don't check them into your git repo!
+
+

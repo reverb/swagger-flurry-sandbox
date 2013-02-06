@@ -1,0 +1,160 @@
+{
+  "apiVersion": "0.1",
+  "swaggerVersion": "1.1",
+  "basePath": "http://api.flurry.com",
+  "resourcePath": "appMetrics",
+  "apis": [
+    {
+      "path": "/appMetrics/{metric_name}",
+      "description": "Metric access",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Gets event summaries",
+          "responseClass": "List[AppInfo]",
+          "nickname": "getMetrics",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "metric_name",
+              "description": "Metric name to fetch",
+              "paramType": "path",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string",
+              "allowableValues": {
+                "valueType":"LIST",
+                "values":[
+                  "ActiveUsers",
+                  "ActiveUsersByWeek",
+                  "ActiveUsersByMonth",
+                  "NewUsers",
+                  "MedianSessionLength",
+                  "AvgSessionLength",
+                  "Sessions",
+                  "RetainedUsers",
+                  "PageViews",
+                  "AvgPageViewsPerSession"
+                ]
+              }
+            },
+            {
+              "name": "apiAccessCode",
+              "description": "API Access Code",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "apiKey",
+              "description": "API Key",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "country",
+              "description": "ISO code for country",
+              "paramType": "query",
+              "required": false,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "startDate",
+              "description": "start date in YYYY-mm-DD format",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "endDate",
+              "description": "end date in YYYY-mm-DD format",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "version",
+              "description": "Application version",
+              "paramType": "query",
+              "required": false,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "groupBy",
+              "description": "Application version",
+              "paramType": "query",
+              "required": false,
+              "allowMultiple": false,
+              "dataType": "string",
+              "allowableValues": {
+                "valueType":"LIST",
+                "values":[
+                  "DAYS",
+                  "WEEKS",
+                  "MONTHS"
+                ]
+              }
+            }
+          ],
+          "errorResponses":[
+            {
+              "code":100,
+              "reason":"API Key not found"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": {
+    "AppMetric": {
+      "id": "AppMetrics",
+      "properties": {
+        "@metric": {
+          "type": "string"
+        },
+        "@version": {
+          "type": "string"
+        },
+        "@generatedDate":{
+          "type": "string"
+        },
+        "@startDate":{
+          "type": "string"
+        },
+        "@endDate":{
+          "type": "string"
+        },
+        "@groupBy": {
+        	"type": "string"
+        },
+        "day": {
+        	"type": "Array",
+          "items": {
+          	"$ref": "AppMetric"
+          }
+        }
+      }
+    },
+    "AppMetric": {
+      "id": "AppMetric",
+    	"value": {
+    		"name": {
+    			"type": "int"
+    		},
+    		"date": {
+    			"type": "string"
+    		}
+    	}
+    }
+  }
+}

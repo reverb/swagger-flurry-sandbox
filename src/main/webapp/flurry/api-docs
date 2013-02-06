@@ -1,0 +1,19 @@
+{
+  "apiVersion":"1.0",
+  "swaggerVersion":"1.1",
+  "basePath":"http://localhost:8000/flurry",
+  "apis":[
+    {
+      "path":"/appInfo",
+      "description":"The AppInfo API allows you to request information such as name, version, apiKey, platform, and creation date of one or all of your company's applications."
+    },
+    {
+      "path":"/appMetrics",
+      "description":"The AppMetrics API allows you to request metrics data for one of your applications."
+    },
+    {
+      "path":"/eventMetrics",
+      "description":"The EventMetrics API allows you to request information about your Events."
+    }
+  ]
+}

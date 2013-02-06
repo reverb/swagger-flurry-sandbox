@@ -1,0 +1,191 @@
+{
+  "apiVersion": "0.1",
+  "swaggerVersion": "1.1",
+  "basePath": "http://api.flurry.com",
+  "resourcePath": "appInfo",
+  "apis": [
+    {
+      "path": "/appInfo/getApplication",
+      "description": "Application and account data",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Gets application and version info",
+          "responseClass": "AppInfo",
+          "nickname": "getAppInfo",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "apiAccessCode",
+              "description": "API Access Code",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "apiKey",
+              "description": "API Key",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "country",
+              "description": "ISO code for country",
+              "paramType": "query",
+              "required": false,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "version",
+              "description": "Application version",
+              "paramType": "query",
+              "required": false,
+              "allowMultiple": false,
+              "dataType": "string"
+            }
+          ],
+          "errorResponses": [
+            {
+              "code": 100,
+              "reason": "API Key not found"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/appInfo/getAllApplications",
+      "description": "Application summary data",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "gets all applications",
+          "responseClass": "ApplicationSummary",
+          "nickname": "getAppSummary",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "apiAccessCode",
+              "description": "API Access Code",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "apiKey",
+              "description": "API Key",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "country",
+              "description": "ISO code for country",
+              "paramType": "query",
+              "required": false,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "version",
+              "description": "Application version",
+              "paramType": "query",
+              "required": false,
+              "allowMultiple": false,
+              "dataType": "string"
+            }
+          ],
+          "errorResponses": [
+            {
+              "code": 100,
+              "reason": "API Key not found"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": {
+    "AppInfo": {
+      "id": "AppInfo",
+      "properties": {
+        "@name": {
+          "type": "string"
+        },
+        "@platform": {
+          "type": "string"
+        },
+        "@createdDate": {
+          "type": "string"
+        },
+        "@category": {
+          "type": "string"
+        },
+        "@version": {
+          "type": "string"
+        },
+        "version": {
+          "type": "Array",
+          "items": {
+            "$ref": "Version"
+          }
+        }
+      }
+    },
+    "Version": {
+      "id": "Version",
+      "properties": {
+        "@name": {
+          "type": "string"
+        },
+        "@createdDate": {
+          "type": "string"
+        }
+      }
+    },
+    "ApplicationSummary": {
+      "id": "ApplicationSummary",
+      "properties": {
+        "@companyName": {
+          "type": "string"
+        },
+        "@version": {
+          "type": "string"
+        },
+        "@generatedDate": {
+          "type": "string"
+        },
+        "application": {
+          "type": "ApplicationSummaryDetail"
+        }
+      }
+    },
+    "ApplicationSummaryDetail": {
+      "id": "AppInfo",
+      "properties": {
+        "@name": {
+          "type": "string"
+        },
+        "@platform": {
+          "type": "string"
+        },
+        "@createdDate": {
+          "type": "string"
+        },
+        "@apiKey": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

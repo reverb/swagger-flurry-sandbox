@@ -1,0 +1,259 @@
+{
+  "apiVersion": "0.1",
+  "swaggerVersion": "1.1",
+  "basePath": "http://api.flurry.com",
+  "resourcePath": "eventMetrics",
+  "apis": [
+    {
+      "path": "/eventMetrics/Summary",
+      "description": "Event summaries",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Gets event summaries",
+          "responseClass": "EventSummary",
+          "nickname": "getSummary",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "apiAccessCode",
+              "description": "API Access Code",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "apiKey",
+              "description": "API Key",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "startDate",
+              "description": "start date in YYYY-mm-DD format",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "endDate",
+              "description": "end date in YYYY-mm-DD format",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "version",
+              "description": "Application version",
+              "paramType": "query",
+              "required": false,
+              "allowMultiple": false,
+              "dataType": "string"
+            }
+          ],
+          "errorResponses":[
+            {
+              "code":100,
+              "reason":"API Key not found"
+            }
+          ]
+        }
+      ]
+    },{
+      "path": "/eventMetrics/Event",
+      "description": "Event details",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Gets event summaries",
+          "responseClass": "Event",
+          "nickname": "getEvents",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "apiAccessCode",
+              "description": "API Access Code",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "apiKey",
+              "description": "API Key",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "eventName",
+              "description": "Event Name",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "startDate",
+              "description": "start date in YYYY-mm-DD format",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "endDate",
+              "description": "end date in YYYY-mm-DD format",
+              "paramType": "query",
+              "required": true,
+              "allowMultiple": false,
+              "dataType": "string"
+            },
+            {
+              "name": "version",
+              "description": "Application version",
+              "paramType": "query",
+              "required": false,
+              "allowMultiple": false,
+              "dataType": "string"
+            }
+          ],
+          "errorResponses":[
+            {
+              "code":100,
+              "reason":"API Key not found"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "models": {
+    "Event": {
+      "id": "EventSummary",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "@version": {
+          "type": "string"
+        },
+        "@generatedDate": {
+          "type": "string"
+        },
+        "@eventName": {
+          "type": "string"
+        },
+        "@startDate": {
+          "type": "string"
+        },
+        "@endDate": {
+          "type": "string"
+        },
+        "day": {
+          "type": "Array",
+          "items": {
+            "$ref": "EventDetail"
+          }
+        }
+      }
+    },
+    "EventDetail": {
+      "id": "EventDetail",
+      "properties": {
+        "@uniqueUsers": {
+          "type": "int"
+        },
+        "@totalSessions": {
+          "type": "int"
+        },
+        "@totalCount": {
+          "type": "int"
+        },
+        "@date": {
+          "type": "string"
+        }
+      }
+    },
+    "EventSummary": {
+      "id": "EventSummary",
+        "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "@version": {
+          "type": "string"
+        },
+        "@generatedDate": {
+          "type": "string"
+        },
+        "@eventName": {
+          "type": "string"
+        },
+        "@startDate": {
+          "type": "string"
+        },
+        "@endDate": {
+          "type": "string"
+        },
+        "event": {
+          "type": "Array",
+          "items": {
+            "$ref": "EventSummaryDetail"
+          }
+        }
+      }
+    },
+    "EventSummaryDetail": {
+      "id": "EventSummaryDetail",
+      "properties": {
+        "@uniqueUsers": {
+          "type": "int"
+        },
+        "@usersLastWeek": {
+          "type": "int"
+        },
+        "@usersLastMonth":{
+          "type": "int"
+        },
+        "@usersLastDay":{
+          "type": "int"
+        },
+        "@totalSessions":{
+          "type": "int"
+        },
+        "@totalCount":{
+          "type": "int"
+        },
+        "@eventName":{
+          "type": "string"
+        },
+        "@avgUsersLastWeek":{
+          "type": "int"
+        },
+        "@avgUsersLastMonth":{
+          "type": "int"
+        },
+        "@avgUsersLastDay":{
+          "type": "int"
+        },
+        "@avgUsersLastDay":{
+          "type": "int"
+        },
+        "@date":{
+          "type": "Date"
+        }
+      }
+    }
+  }
+}

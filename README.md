@@ -25,6 +25,9 @@ Now open your browser and see the API in swagger:
 http://localhost:8000
 ```
 
+![Screenshot](https://raw.github.com/reverb/swagger-flurry-sandbox/master/screen-shot.png)
+
+
 Voila!  Browse your data in an elegant fashion.  But wait, there's more...
 
 If you want to create a client to hit the Flurry API and pull your info programmatically, you can do so by running the [swagger-codegen](https://github.com/wordnik/swagger-codegen) and building a client lib.  There's a simple script to do so in scala:

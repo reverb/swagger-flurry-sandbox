@@ -45,9 +45,7 @@
     <script type="text/javascript">
         $(function () {
             window.swaggerUi = new SwaggerUi({
-                apiKeyName:"apiKey",
                 discoveryUrl:"http://localhost:8000/flurry/api-docs",
-                apiKey:"XYZ",
                 dom_id:"swagger-ui-container",
                 supportHeaderParams: false,
                 supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
@@ -88,7 +86,7 @@
             </div>
             <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl"
                                       type="text"/></div>
-            <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
+            <!-- <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div> -->
             <div class='input'><a id="explore" href="#">Explore</a></div>
         </form>
     </div>
